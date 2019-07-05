@@ -1,13 +1,7 @@
-import tensorflow as tf
 
+from utils.attack import attackImages
+import numpy as np
 
 def aiTest(images, shape):
-    print(len(images))
-    hello = tf.constant('Hello, TensorFlow!')
-    session = tf.Session()
-
-    generate_images = session.run(hello)
-    return generate_images
-
-
-# print(aiTest([], []))
+    generate_images = attackImages(images.squeeze())
+    return np.expand_dims(generate_images, -1)
